@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>시간이란...</title>
 <style>
-	#content{width: 90%; margin: 20px auto; text-aline: center;}
+	#content{width: 90%; margin: 20px auto; text-align: center;}
 </style>
 <script>
-	// [ 디지털 시계 삽입 ]
+	// 디지털 시계 삽입
 	setInterval(myWatch, 1000);
 	
 	function myWatch(){

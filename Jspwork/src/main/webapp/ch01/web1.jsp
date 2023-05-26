@@ -21,6 +21,6 @@
 		String current_time = now.format(datetime);
 	%>
 	<h5>현재 날짜와 시간은 <%= current_time %></h5>
-	<h3>배는 부른데 배고프다..</h5>
+	<h3>배는 부른데 배고프다..dd</h5>
 </body>
 </html>
