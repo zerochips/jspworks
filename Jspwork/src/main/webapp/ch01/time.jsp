@@ -37,4 +37,7 @@
 window > Preference > web > 
 Encoding - CSS/HTML/JSP UTF-8로 변경
 
+jsp가 xml형태로 많이 사용한다
+xml : 
+
 -->
