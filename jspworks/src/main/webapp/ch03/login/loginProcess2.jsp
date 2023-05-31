@@ -3,6 +3,9 @@
     pageEncoding="UTF-8"%>
 
 <%
+	// 한글 인코딩 - 삽입하지 않으면 한글 깨짐
+	request.setCharacterEncoding("utf-8");
+
 	// 폼에 입력된 데이터 가져오기
 	String uid = request.getParameter("userid");
 	String pwd = request.getParameter("passwd");

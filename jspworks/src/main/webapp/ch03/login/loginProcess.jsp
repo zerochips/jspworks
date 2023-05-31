@@ -16,3 +16,5 @@
 %>
 <p>아이디: <jsp:getProperty property="userid" name="login"/></p>
 <p>비밀번호: <jsp:getProperty property="passwd" name="login"/></p>
+
+<!-- jsp 액션태그 <jsp:~~~> -->
