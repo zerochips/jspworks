@@ -12,8 +12,7 @@
 		response.setCharacterEncoding("utf-8");
 	
 		// 컨텐츠 유형(타입)을 응답 처리
-		response.setContentType("text/html; charset=utf-8");
-	
+		response.setContentType("text/html; charset=utf-8");	
 	%>
 	
 	<p>문자 인코딩: <%= response.getCharacterEncoding() %></p>

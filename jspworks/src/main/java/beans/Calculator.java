@@ -3,9 +3,9 @@ package beans;
 // 계산기 자료형(VO + DAO)
 public class Calculator {
 	// 필드 - DAO와 같이있기 때문에 0으로 초기화해줌
-	private int num1 = 0;	// 첫번째 수 - input name 이름과 동일하게 설정
-	private int num2 = 0;	// 두번째 수	
-	private String op ="";	//연산자	
+	private int num1;	// 첫번째 수 - input name 이름과 동일하게 설정
+	private int num2;	// 두번째 수	
+	private String op;	//연산자	
 	private int result;
 	
 	// 계산하는 메서드
