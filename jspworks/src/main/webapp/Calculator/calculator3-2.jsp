@@ -13,7 +13,7 @@
 		<hr>
 		<!-- *** 안되면 서버에 모듈에 /jsp~~ 에서 /로 수정 변경할것! *** -->
 		
-		<form action="/Calculator/calc" method="get">
+		<form action="/Calculator/calc2" method="get">
 			<input type="text" name="num1">
 			<select name="op">
 				<option>+</option>

@@ -7,7 +7,8 @@
 <title>request 객체 예제</title>
 </head>
 <body>
-	<form action="process.jsp">	
+ <!-- method get 추가  --> 
+	<form action="process.jsp" method="get">	
 		<p>
 			<label for="uname">이름 </label>
 			<input type="text" id="uname" name="uname">

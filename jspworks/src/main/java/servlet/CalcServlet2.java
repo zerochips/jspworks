@@ -11,17 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 // *** 안되면 서버에 모듈에 /jsp~~ 에서 /로 수정 변경할것! ***
 
-@WebServlet("/Calculator/calc")
-public class CalcServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/Calculator/calc2")
+public class CalcServlet2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;	
 	
-	// method 방식인 get 요청 처리
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);	// method = "get" 방식으로 설정했을 때 doPost()를 사용해 405오류 나지 않도록 호출해준다
-	}
-
-	// method 방식인 post 요청 처리	// method="post"
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//폼 데이터 가져오기
 		int num1 = Integer.parseInt(request.getParameter("num1"));
 		int num2 = Integer.parseInt(request.getParameter("num2"));
@@ -52,7 +47,16 @@ public class CalcServlet extends HttpServlet {
 		out.append("<link rel=\"stylesheet\" href=\"../resources/css/style.css\">")
 		   .append("<div id=\"container\">")
 		   .append("<h2>계산기</h2><hr>")
-		   .append("<p>계산결과: " + result + "</p></div>");
-		
+		   .append("<p>계산결과: " + result + "</p></div>");			
+	}
+
+	// method 방식인 get 요청 처리
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		service(request, response);	// 호출
+	}
+
+	// method 방식인 post 요청 처리	// method="post"
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		service(request, response); //호출
 	}
 }
