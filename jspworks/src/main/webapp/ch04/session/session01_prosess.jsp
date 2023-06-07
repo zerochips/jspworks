@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	// 여긴 처리페이지니까요
+	// 세션 가져오기
 	String userId = request.getParameter("userid");
 	String userPw = request.getParameter("passwd");
 	

@@ -7,6 +7,7 @@
 <title>유효성 검사</title>
 <script type="text/javascript">
 	function checkForm(){
+		// name 속성을 사용
 		let form = document.loginForm;
 		let userid = form.userid;
 		let passwd = form.passwd;
@@ -40,3 +41,11 @@
 	</form>
 </body>
 </html>
+<!-- 
+onclick이 들어가면 자바스크립트를 사용해야한다는 말이죠~
+보안 권한 - tomcat server 를 사용함
+이미지파일 업로드
+
+숫자가 아닌경우 유효성 검사
+isNaN() - not a number - 숫자가 아닌 경우
+-->
