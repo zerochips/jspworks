@@ -8,8 +8,14 @@
 <head>
 <meta charset="UTF-8">
 <title>JSTL 예제</title>
+<%
+	// 모델 생성
+	pageContext.setAttribute("cart", "계란");
+
+%>
 </head>
 <body>
+	<h3>${cart }</h3>
 	<%-- <%	
 		int num = 10;
 		
