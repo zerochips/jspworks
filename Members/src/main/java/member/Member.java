@@ -8,7 +8,7 @@ public class Member implements Serializable{
 	private static final long serialVersionUID = 3L;
 	// 필드
 	private String memberId;
-	private String passWd;
+	private String passwd;
 	private String name;
 	private String gender;
 	private Date joinDate;
@@ -25,12 +25,12 @@ public class Member implements Serializable{
 		this.memberId = memberId;
 	}
 	
-	public String getPassWd() {
-		return passWd;
+	public String getPasswd() {
+		return passwd;
 	}
 	
-	public void setPassWd(String passWd) {
-		this.passWd = passWd;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	
 	public String getName() {

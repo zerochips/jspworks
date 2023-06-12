@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
+	<jsp:include page="header.jsp"/>	<!-- 로고/헤더 -->
+	
+	
 	<!-- main 페이지라네~ -->
 	<div id="container">
 		<section id="main">
@@ -18,6 +21,7 @@
 		</section>
 	</div>
 	
+	<jsp:include page="footer.jsp"/>	<!-- 풋터 -->
 
 </body>
 </html>
