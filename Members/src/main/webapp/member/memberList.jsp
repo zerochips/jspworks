@@ -11,17 +11,13 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-
-	<c:if test="${empty sessionId }">
-		<script>
-			alert("로그인 해주세요");
-			location.href = "/loginForm.do";	// 페이지 이동
-		</script>
-	</c:if>
 	
 	<div id="container">
 	   <section id="memberlist">
 		<h2>회원 목록</h2>
+		<div class="logout">
+			<p><a href="/logout.do">[관리자 로그아웃]</a></p>
+		</div>
 		<table id="tbl_list">
 			<thead>
 				<tr>
@@ -30,6 +26,7 @@
 					<th>이름</th>
 					<th>성별</th>
 					<th>가입일</th>
+					<th>삭제</th>		<!-- 삭제 버튼 생성 -->		
 				</tr>
 			</thead>
 			<tbody>
@@ -44,7 +41,13 @@
 					<td><c:out value="${member.gender}" /> </td>
 					<%-- <td><c:out value="${member.joinDate}" /> </td> --%>
 					<td><fmt:formatDate value="${member.joinDate}"
-							pattern="yyyy-MM-dd hh:mm:ss" /> </td>
+							pattern="yyyy-MM-dd HH:mm:ss" /> </td>
+					<td><!-- 500 뜨면 오타 확인 부터 할 것 -->
+						<a href="/deleteMember.do?memberId=${member.memberId}"
+							onclick="return confirm('정말로 삭제하시겠습니까?')">
+							<button type="button">삭제</button>
+						</a>
+					</td>
 					
 				</tr>
 				</c:forEach>

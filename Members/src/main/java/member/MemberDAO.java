@@ -115,7 +115,20 @@ public class MemberDAO {
 		return false;
 	}
 	
-	
+	// 회원 삭제 - BoardDAO 게시글 삭제에서 가져와서 sql, pstmt 일부분 수정
+	public void deleteMember(String memberId) {
+		conn = JDBCUtil.getConnection();
+		String sql = "DELETE FROM t_member WHERE memberId = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.executeUpdate();	//db에서 삭제
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+	}
 	
 	
 	

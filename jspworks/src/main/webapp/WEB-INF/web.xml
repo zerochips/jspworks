@@ -10,4 +10,34 @@
 		<url-pattern>/mvc/mvc02</url-pattern>
 	</servlet-mapping>
 	
+	<!-- 보안(권한 설정) tomcat-users.xml과 동일한 이름으로 설정 | <user username="role1" password="role1234" roles="role1"/> 이렇게 설정해놨음-->
+	<security-role>
+		<role-name>role1</role-name> <!-- 다른 관리자로 설정하고 싶으면 여길 수정 변경하면 됨 -->	
+	</security-role>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Jspwork</web-resource-name>
+			<url-pattern>/ch06/security01.jsp</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>권한사용자명</description>
+			<role-name>role1</role-name> <!-- 다른 관리자로 설정하고 싶으면 여길 수정 변경하면 됨 -->
+		</auth-constraint>
+	</security-constraint>
+	
+	<!-- 기본 인증(제공된 로그인 폼) -->
+	<!-- <login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config> -->
+	
+	<!-- 사용자 폼 기반 인증 -->
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/ch06/login.jsp</form-login-page>
+			<form-error-page>/ch06/login_failed.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	
+	
 </web-app>

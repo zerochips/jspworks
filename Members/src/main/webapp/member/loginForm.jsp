@@ -18,11 +18,13 @@
 					<ul>
 						<li>
 							<label for="memberId">아이디 </label>
-							<input type="text" id="memberId" name="memberId">
+							<input type="text" id="memberId" name="memberId"
+								placeholder="ID" required="required" autofocus>
 						</li>
 						<li>
 							<label for="passwd">비밀번호 </label>
-							<input type="password" id="passwd" name="passwd">
+							<input type="password" id="passwd" name="passwd"
+								placeholder="ID" required="required">
 						</li>						
 					</ul>
 				</fieldset>
