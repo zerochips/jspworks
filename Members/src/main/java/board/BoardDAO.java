@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import common.JDBCUtil;
@@ -41,8 +42,7 @@ public class BoardDAO {
 			JDBCUtil.close(conn, pstmt, rs);
 		}		
 		return boardList;
-	}
-	
+	}	
 	
 	// 게시글 쓰기 - MemberDAO 회원가입과
 	public void addBoard(Board board) {
@@ -113,5 +113,28 @@ public class BoardDAO {
 			JDBCUtil.close(conn, pstmt);
 		}
 	}
+	
+	// 게시글 수정
+	public void updateBoard(Board board) { /* 매개변수는 Board가 돼요 */ 
+		// 현재 시간 객체 생성
+		Timestamp now = new Timestamp(System.currentTimeMillis()); /* 3번 now로 표시됨 */
+		
+		conn = JDBCUtil.getConnection(); /* String sql = update 뒤에 table이 들어가서 수정되지않는 오류 발생 */ 
+		String sql = "UPDATE t_board SET title=?, content=?, "
+				+ "modifydate=? WHERE bnum = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getContent());
+			pstmt.setTimestamp(3, now);
+			pstmt.setInt(4, board.getBnum());
+			pstmt.executeUpdate();	//db에 저장 - db에서 업데이트 시켜줌
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(conn, pstmt);
+		}
+	}
+	
 		
 }
