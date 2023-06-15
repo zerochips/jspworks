@@ -163,7 +163,7 @@
 	  <!-- ↓ 여기 추가하였음 ↓  - fileupload01_process.jsp 참조-->
 	  
       
-      <Context docBase="Members" path="/" reloadable="true" source="org.eclipse.jst.jee.server:Members"/></Host>
+      <Context docBase="jspworks" path="/" reloadable="true" source="org.eclipse.jst.jee.server:jspworks"/></Host>
     </Engine>
   </Service>
 </Server>

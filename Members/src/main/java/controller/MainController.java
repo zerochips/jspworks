@@ -127,7 +127,7 @@ public class MainController extends HttpServlet {
 			String memberId = request.getParameter("memberId");
 			memberDAO.deleteMember(memberId);	// 회원 삭제 처리 이루어짐			
 			nextPage = "memberList.do";
-		}	
+		}
 		
 		// ********** [ 게시판 관리 ] **********
 		if(command.equals("/boardList.do")) {
@@ -182,7 +182,9 @@ public class MainController extends HttpServlet {
 			
 			boardDAO.updateBoard(updateBoard);
 			nextPage = "/boardList.do";
-		}		
+		}else if(command.equals("/memberEvent.do")) {
+			nextPage = "/member/memberEvent.jsp";
+		}
 		
 		// 포워딩 - 새로고침 자동 자장 오류 해결: respose.sendRedirect()
 		if(command.equals("/addBoard.do")) {

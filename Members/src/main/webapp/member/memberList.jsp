@@ -47,13 +47,16 @@
 							onclick="return confirm('정말로 삭제하시겠습니까?')">
 							<button type="button">삭제</button>
 						</a>
-					</td>
-					
+					</td>					
 				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		</section>
+		<h3>이벤트 추첨 링크</h3>
+		<a href="/member/memberEvent.do">
+			<img src="./resources/images/bronx.png" alt="이벤트추첨">
+		</a>
 	</div>
 	
 	<jsp:include page="../footer.jsp"/>

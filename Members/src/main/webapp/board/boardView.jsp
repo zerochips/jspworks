@@ -30,10 +30,22 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td>							
 							<c:out value="글쓴이: ${board.memberId}"/>	<!-- memberId와 sessionId 가 같은지 확인이 필요 -->
-								(작성일: <fmt:formatDate value="${board.regDate}" 
-								pattern="yyyy-MM-dd HH:mm:ss"/>)
+							
+							<c:choose> <!-- 수정 변경될 대상만 잡아줌 -->
+								<!-- ***** [ 변경 후 - 비어있지 않다면 ] ***** -->
+								<c:when test="${not empty board.modifyDate }"> <!-- BoardDAO에서 게시글 상세보기 if board.get을 기입해줌 "modifydate" 라고 설정하였음 -->
+									(수정일: <fmt:formatDate value="${board.modifyDate}"  <%-- board.setModifyDate(rs.getTimestamp("modifydate")); --%>
+										pattern="yyyy-MM-dd HH:mm:ss"/>)
+								</c:when>								
+								<!-- ***** [ 비어있다면 ] ***** -->
+								<c:otherwise>
+									(작성일: <fmt:formatDate value="${board.regDate}" <%-- board.setRegDate(rs.getTimestamp("regdate")); --%>
+									pattern="yyyy-MM-dd HH:mm:ss"/>)
+								</c:otherwise>
+								
+							</c:choose>
 						</td>
 					</tr>
 					<tr>

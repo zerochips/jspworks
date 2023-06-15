@@ -134,6 +134,15 @@ footer{height: 80px; border-top: 2px solid #222;}
 #board_update table button{padding: 5px 10px;}
 	
 
+/* memberEvent 스타일 */
+#memberEvent{width: 80%; margin: 40px auto 100px; text-align: center}
+#memberEvent .banner{margin: 30px auto;}
+#memberEvent button{padding: 10px 20px; font-size: 1em;}
+#memberEvent #display{width: 320px; height: 100px; margin: 20px auto;
+	border: 1px solid #ccc; padding-top: 60px; letter-spacing: 1px;
+	background: orange;}
+
+
 /*  */
 
 
