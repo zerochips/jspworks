@@ -73,6 +73,7 @@ public class MainController extends HttpServlet {
 			String name = request.getParameter("name");
 			String gender = request.getParameter("gender");
 			
+			
 			// 이 member를 객체 생성해야하죠
 			Member newMember = new Member();	// 회원 객체 생성
 			newMember.setMemberId(memberId);
@@ -81,6 +82,8 @@ public class MainController extends HttpServlet {
 			newMember.setGender(gender);		
 			
 			memberDAO.addMember(newMember);// 회원 매개로 DB에 저장
+			
+			session.setAttribute("sessionId", memberId);	// 회원가입하면 자동으로 로그인[나무나무]로그아웃 이렇게 표시됨
 			
 			nextPage = "index.jsp";
 		}else if(command.equals("/memberView.do")){	// 회원 정보 요청

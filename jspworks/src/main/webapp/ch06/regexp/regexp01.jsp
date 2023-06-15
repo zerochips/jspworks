@@ -20,7 +20,7 @@
 		let regExpId = /^[a-zA-Z가-힣]/; 			// 아이디 - 문자로 시작
 		let regExpPw = /^[0-9]+$/;				// 비밀번호 - 숫자만
 		//let regExpName = /^[a-zA-Z가-힣]+$/;	// 이름 - 한글만
-		let regExpName = /^[a-zA-Z가-힣]+$/;		// 이름 - 한글만
+		let regExpName = /^[ㄱ-ㅎ가-힣]+$/;			// 이름 - 한글만
 		let regExpPhone = /\d{3}-\d{3,4}-\d{4}/;	//전화번호 -
 		
 		if(id == "" || !regExpId.test(id)){		// 요거랑 id랑 비교하죠~
