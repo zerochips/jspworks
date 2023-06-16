@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
-	<jsp:include page="../header.jsp" />	
+	<jsp:include page="../header.jsp" />
 	
 	<div id="container">
 		<section id="board_detail">
@@ -31,20 +31,15 @@
 					</tr>
 					<tr>
 						<td>							
-							<c:out value="글쓴이: ${board.memberId}"/>	<!-- memberId와 sessionId 가 같은지 확인이 필요 -->
+							<c:out value="글쓴이: ${board.memberId}"/>
 							
-							<c:choose> <!-- 수정 변경될 대상만 잡아줌 -->
-								<!-- ***** [ 변경 후 - 비어있지 않다면 ] ***** -->
-								<c:when test="${not empty board.modifyDate }"> <!-- BoardDAO에서 게시글 상세보기 if board.get을 기입해줌 "modifydate" 라고 설정하였음 -->
-									(수정일: <fmt:formatDate value="${board.modifyDate}"  <%-- board.setModifyDate(rs.getTimestamp("modifydate")); --%>
-										pattern="yyyy-MM-dd HH:mm:ss"/>)
-								</c:when>								
-								<!-- ***** [ 비어있다면 ] ***** -->
+							<c:choose>
+								<c:when test="${not empty board.modifyDate }"> 
+									(수정일: <fmt:formatDate value="${board.modifyDate}" pattern="yyyy-MM-dd HH:mm:ss"/>)
+								</c:when>
 								<c:otherwise>
-									(작성일: <fmt:formatDate value="${board.regDate}" <%-- board.setRegDate(rs.getTimestamp("regdate")); --%>
-									pattern="yyyy-MM-dd HH:mm:ss"/>)
-								</c:otherwise>
-								
+									(작성일: <fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd HH:mm:ss"/>)
+								</c:otherwise>							
 							</c:choose>
 						</td>
 					</tr>
@@ -54,16 +49,13 @@
 					<tr>
 						<td>														
 							<c:if test="${board.memberId == sessionId}">
-								<!-- **** 수정 **** -->
 								<a href="/updateBoard.do?bnum=${board.bnum}">
 									<button type="button">수정</button>
 								</a>
-								<!-- **** 삭제 **** -->
 								<a href="deleteBoard.do?bnum=${board.bnum}"
 									onclick="return confirm('정말로 삭제하시겠습니까?')">
 									<button type="button">삭제</button>
-								</a>
-								
+								</a>								
 							</c:if>
 							<a href="/boardList.do">
 								<button type="button">목록</button>
