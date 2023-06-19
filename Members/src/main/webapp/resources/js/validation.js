@@ -4,6 +4,7 @@ function checkMember(){
 	let pw1 = form.passwd1.value;
 	let pw2 = form.passwd2.value;
 	let name = form.name.value;
+	let btnChk = form.btnChe.value;	//'Y' or 'N'
 	
 	//정규 표현식
 	let pw_pat1 = /[0-9]+/;	// 숫자만
@@ -29,7 +30,11 @@ function checkMember(){
 		alert("이름을 다시 확인해주세요");
 		form.name.select();
 		return false;
-	}else{
+	}else if(btnChk == 'N'){
+		alert("ID 중복을 확인해주세요");
+		return false;
+	}
+	else{
 		form.submit();
 	}
 }
