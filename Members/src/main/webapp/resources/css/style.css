@@ -99,6 +99,9 @@ footer{height: 80px; border-top: 2px solid #222;}
 #boardlist table td:nth-of-typs(2){text-align: left; padding-left: 10px;} /* 여기 ppt */
 #boardlist .btnWrite{text-align: right; margin-right: 20px;}
 #boardlist button{padding: 10px;}
+/* <!-- [ 여기 수정되어야 함! ] --> */
+#boardlist .pagination{}
+
 
 
 /* 글쓰기 - board_reg 스타일 */
