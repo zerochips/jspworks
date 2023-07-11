@@ -8,10 +8,10 @@ public class JdbcTest {
 	
 	// 우클릭 → run as → Java application → console 확인
 	
-	static String driverClass = "com.mysql.cj.jdbc.Driver";  //드라이버 이름
-	static String url = "jdbc:mysql://localhost:3306/mydb"; //db 경로(위치)
-	static String username = "root";  		//user 이름
-	static String password = "root";		//비밀번호
+	static String driverClass = "com.mysql.cj.jdbc.Driver";	//드라이버 이름
+	static String url = "jdbc:mysql://localhost:3306/mydb";	//db 경로(위치)
+	static String username = "root";  						//user 이름
+	static String password = "root";						//비밀번호
 
 	public static void main(String[] args) {
 		//연결 객체 선언

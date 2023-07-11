@@ -16,14 +16,20 @@ public class BoardDAO {
 	private ResultSet rs = null;
 		
 	// 게시글 목록
-	public ArrayList<Board> getBoardList(){
-		ArrayList<Board> boardList = new ArrayList<>();
-		conn = JDBCUtil.getConnection();
-		String sql = "SELECT * FROM t_board ORDER BY regdate DESC";
+	public ArrayList<Board> getBoardList(int page){
+		ArrayList<Board> boardList = new ArrayList<>();		
 		
 		try {
+			conn = JDBCUtil.getConnection();
+			String sql = "SELECT * "
+					+ "FROM (SELECT ROWNUM rn, board.* "
+					+ "            FROM(SELECT * FROM t_board ORDER BY bnum DESC) board) "
+					+ "WHERE rn >= ? AND RN <= ?";	
+			
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			pstmt.setInt(1, (page-1)*10 + 1);
+			pstmt.setInt(2,  page*10);
+			rs = pstmt.executeQuery();			
 			while(rs.next()) {
 				Board board = new Board();
 				board.setBnum(rs.getInt("bnum"));	// 글번호를 db에서 가져와서 board.set
@@ -43,6 +49,25 @@ public class BoardDAO {
 		}		
 		return boardList;
 	}	
+	
+	//게시글 총 개수
+		public int getBoardCount() {
+			int total = 0;
+			conn = JDBCUtil.getConnection();
+			String sql = "SELECT COUNT(*) AS total FROM t_board";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				if(rs.next())
+					total = rs.getInt("total");  //db에서 총개수 반환
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				JDBCUtil.close(conn, pstmt, rs);
+			}
+			return total;
+		}
+	
 	
 	// 게시글 쓰기 - MemberDAO 회원가입과
 	public void addBoard(Board board) {
