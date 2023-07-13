@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Members3</display-name>
+  
+  <!-- 보안(권한 설정) tomcat-users.xml과 동일한 이름으로 설정 -->
+  <!-- <user username="role1" password="role1234" roles="role1"/> 이렇게 설정해놨음-->
+	<security-role>
+		<role-name>admin</role-name> <!-- 다른 관리자로 설정하고 싶으면 여길 수정 변경하면 됨 -->	
+	</security-role>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Members3</web-resource-name> <!-- 프로젝트명 -->
+			<url-pattern>/memberList.do</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>권한사용자명</description>
+			<role-name>admin</role-name> <!-- 다른 관리자로 설정하고 싶으면 여길 수정 변경하면 됨 -->
+		</auth-constraint>
+	</security-constraint>
+	
+	<!-- 사용자 폼 기반 인증 -->
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/member/adminLogin.jsp</form-login-page>
+			<form-error-page>/member/loginFailed.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	
+</web-app>
